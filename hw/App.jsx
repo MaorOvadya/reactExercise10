@@ -1,8 +1,8 @@
+// import { color } from 'framer-motion'
 import React from 'react'
 import { Cat} from 'react-kawaii'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateCatMood, MOODS, updateCatColor,updateCatSizeDic,updateCatSizeInc} from './mood'
-// import { color } from 'framer-motion'
 
 function App() {
   const currentMood = useSelector((state) => state.mood)
@@ -17,8 +17,9 @@ function App() {
   }
   // UPDATE COLOR
   const handleColorUpdate = (event) => {
-    const color = event.target.dataset.type
+    const color = event.target.value
     dispatch(updateCatColor(color))
+    console.log(event)
   }
 
 
@@ -36,8 +37,7 @@ function App() {
           <button onClick={() => dispatch(updateCatSizeDic())}>-</button>
           </div>
           <div>
-
-          <input onChange={handleColorUpdate} type="color"></input>
+          <input onChange={handleColorUpdate} type="color"/>
           </div>
       </section>
     </div>

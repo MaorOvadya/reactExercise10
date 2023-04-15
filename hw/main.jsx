@@ -8,7 +8,7 @@ import App from './App'
 import {configureStore} from '@reduxjs/toolkit'
 
 import { Provider } from 'react-redux'
-import { moodReducer } from './mood'
+import  moodReducer from './mood'
 
 const store = configureStore({ reducer: moodReducer })
 

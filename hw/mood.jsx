@@ -4,21 +4,6 @@ const URL =
 
 import { createSlice } from "@reduxjs/toolkit";
 
-export const catSlice = createSlice({
-  // name: "mood",
-  initialState: {
-    mood: MOODS.HAPPY,
-    color: "#ffff",
-    size: 300,
-  },
-  reducers: {
-    updateCatMood: (state, action) => ({ ...state, mood: action.payload }),
-    updateCatColor: (state, action) => ({ ...state, color: action.payload }),
-    updateCatSizeInc: (state) => ({ ...state, size: state.size + 5 }),
-    updateCatSizeDic: (state) => ({ ...state, size: state.size - 5 }),
-  },
-});
-
 export const MOODS = {
   SAD: "sad",
   HAPPY: "happy",
@@ -29,11 +14,26 @@ export const MOODS = {
   LOVESTRUCK: "lovestruck",
 };
 
+export const catSlice = createSlice({
+  name: "mood",
+  initialState: {
+    mood: MOODS.HAPPY,
+    color: "#ffff",
+    size: 300,
+  },
+  reducers: {
+    updateCatMood: (state, action) => ({ ...state, mood: action.payload }),
+    updateCatColor: (state, action) => ({ ...state, color: action.payload}),
+    updateCatSizeInc: (state) => ({ ...state, size: state.size + 5 }),
+    updateCatSizeDic: (state) => ({ ...state, size: state.size - 5 }),
+  },
+});
+
 export const {
   updateCatColor,
   updateCatMood,
   updateCatSizeDic,
   updateCatSizeInc,
-} = catSlice.action;
+} = catSlice.actions;
 
-export default catSlice.reducers;
+export default catSlice.reducer;
